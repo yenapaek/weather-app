@@ -36,3 +36,20 @@
     transform: rotate(360deg);
   }
 }
+.weather {
+  display: flex;
+  justify-content: center;
+}
+.forcastBlock {
+  width: fit-content;
+}
+
+.temp {
+  display: flex;
+  justify-content: space-between;
+  width: 10rem;
+}
+
+.day, .max {
+  color: grey;
+}

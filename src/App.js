@@ -14,7 +14,7 @@ export default function App() {
         setLong(position.coords.longitude);
       });
 
-      await fetch(`${process.env.REACT_APP_API_URL}/onecall?lat=${lat}&lon=${long}&exclude=minutely,hourly,alerts&APPID=${process.env.REACT_APP_API_KEY}`)
+      await fetch(`${process.env.REACT_APP_API_URL}/onecall?lat=${lat}&lon=${long}&exclude=minutely,hourly,alerts&units=metric&APPID=${process.env.REACT_APP_API_KEY}`)
       .then(res => res.json())
       .then(result => {
         setData(result)
