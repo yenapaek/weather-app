@@ -31,6 +31,4 @@ Goal: display the forecast data for all 5 days
 ___
 
 ## Link
-```git
 [Live Demo]:https://yenapaek.github.io/weather-app/
-```
