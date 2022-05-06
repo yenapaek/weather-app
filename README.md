@@ -32,5 +32,5 @@ ___
 
 ## Link
 ```git
-[Live Demo](https://yenapaek.github.io/weather-app/)
+[Live Demo]:https://yenapaek.github.io/weather-app/
 ```
