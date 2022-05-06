@@ -1,8 +1,10 @@
 import React from 'react';
 
-function Weather({weatherData}) {
-    const currentDate = new Date().toLocaleString('default', {weekday: 'short'});
+export default function Weather({weatherData}) {
     
+    const currentDate = new Date().toLocaleString('default', {weekday: 'short'});
+    const forecastArr = weatherData.daily.slice(0,5);
+
     const getWeatherIcon = (day) => {
         const iconCode = weatherData.daily[day].weather[0].icon;
     
@@ -14,50 +16,23 @@ function Weather({weatherData}) {
         );
     }
 
+    const getForecast = 
+        forecastArr.map((day, i) => 
+            <div className="forcastBlock" key={`day${i}`}>
+                <div className="day">{currentDate}</div>
+                <div>{getWeatherIcon(i)}</div>
+                <div className="temp">
+                    <div className="min">{Math.trunc(day.temp.min)} °</div>
+                    <div className="max">{Math.trunc(day.temp.max)} °</div>     
+                </div>             
+            </div>
+        );
+
     return (
         <div className="weather">
-            <div className="forcastBlock currentDay">
-                <div className="day">{currentDate}</div>
-                <div>{getWeatherIcon(0)}</div>
-                <div className="temp">
-                    <div className="min">{weatherData.daily[0].temp.min} °</div>
-                    <div className="max">{weatherData.daily[0].temp.max} °</div>     
-                </div>             
-            </div>
-            <div className="forcastBlock">
-                <div className="day">{currentDate}</div>
-                <div>{getWeatherIcon(1)}</div>
-                <div className="temp">
-                    <div className="min">{weatherData.daily[1].temp.min} °</div>
-                    <div className="max">{weatherData.daily[1].temp.max} °</div>     
-                </div>             
-            </div>
-            <div className="forcastBlock">
-                <div className="day">{currentDate}</div>
-                <div>{getWeatherIcon(2)}</div>
-                <div className="temp">
-                    <div className="min">{weatherData.daily[2].temp.min} °</div>
-                    <div className="max">{weatherData.daily[2].temp.max} °</div>     
-                </div>             
-            </div>
-            <div className="forcastBlock">
-                <div className="day">{currentDate}</div>
-                <div>{getWeatherIcon(3)}</div>
-                <div className="temp">
-                    <div className="min">{weatherData.daily[3].temp.min} °</div>
-                    <div className="max">{weatherData.daily[3].temp.max} °</div>     
-                </div>             
-            </div>
-            <div className="forcastBlock">
-                <div className="day">{currentDate}</div>
-                <div>{getWeatherIcon(4)}</div>
-                <div className="temp">
-                    <div className="min">{weatherData.daily[4].temp.min} °</div>
-                    <div className="max">{weatherData.daily[4].temp.max} °</div>     
-                </div>             
+            <div className="weatherCont">
+                {getForecast} 
             </div>
         </div>
     );
 }
-  
-  export default Weather;

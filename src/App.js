@@ -1,6 +1,7 @@
 import './App.css';
 import React, { useEffect, useState } from "react";
 import Weather from './components/Weather';
+
 export default function App() {
   
   const [lat, setLat] = useState([]);
@@ -29,7 +30,7 @@ export default function App() {
       {(typeof data.daily != 'undefined') ? (
         <Weather weatherData={data}/>
       ): (
-        <div>nothing</div>
+        <div className='rotate-center'>Loading</div>
       )}
       
     </div>
